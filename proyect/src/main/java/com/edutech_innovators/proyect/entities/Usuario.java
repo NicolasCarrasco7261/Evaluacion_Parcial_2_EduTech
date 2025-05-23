@@ -1,14 +1,21 @@
 package com.edutech_innovators.proyect.entities;
 
+// Importaciones de JPA (Jakarta Persistence API)
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+
+// Clase Usuario representada en la BD como una tabla llamada "usuario" 
 @Entity
 @Table(name="usuario")
 public class Usuario {
+
+    // Atributos de Usuario
+    // Generacion de idUsuario de forma automatica con IDENTITY
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -20,8 +27,12 @@ public class Usuario {
     private String telefono;
     private String direccion;
 
+    // Constructor vacio para que JPA pueda instanciar con @Entity al Usuario en la BD automaticamente
+
     public Usuario() {
     }
+
+    // Constructor con los atributos de Usuario para inicializarlos
 
     public Usuario(Long idUsuario, String nombre, String correo, String contraseña, String telefono, String direccion) {
         this.idUsuario = idUsuario;
@@ -31,6 +42,9 @@ public class Usuario {
         this.telefono = telefono;
         this.direccion = direccion;
     }
+
+    // Metodos Getter and Setter para obtener o modificar los atributos de Usuario
+
     public Long getIdUsuario() {
         return idUsuario;
     }
