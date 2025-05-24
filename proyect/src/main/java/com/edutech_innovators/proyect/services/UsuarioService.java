@@ -9,7 +9,7 @@ public interface UsuarioService {
 
     List<Usuario> findByAll();
     
-    Optional<Usuario> findById(Long idUsuario);
+    Optional<Usuario> findById(Long id);
 
     Usuario save (Usuario unUsuario);
 

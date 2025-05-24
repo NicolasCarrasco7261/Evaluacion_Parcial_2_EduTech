@@ -19,7 +19,7 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long idUsuario;
+    private Long id;
     
     private String nombre;
     private String correo;
@@ -34,8 +34,8 @@ public class Usuario {
 
     // Constructor con los atributos de Usuario para inicializarlos
 
-    public Usuario(Long idUsuario, String nombre, String correo, String contraseña, String telefono, String direccion) {
-        this.idUsuario = idUsuario;
+    public Usuario(Long id, String nombre, String correo, String contraseña, String telefono, String direccion) {
+        this.id = id;
         this.nombre = nombre;
         this.correo = correo;
         this.contraseña = contraseña;
@@ -45,11 +45,11 @@ public class Usuario {
 
     // Metodos Getter and Setter para obtener o modificar los atributos de Usuario
 
-    public Long getIdUsuario() {
-        return idUsuario;
+    public Long getId() {
+        return id;
     }
-    public void setIdUsuario(Long idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setId(Long id) {
+        this.id = id;
     }
     public String getNombre() {
         return nombre;

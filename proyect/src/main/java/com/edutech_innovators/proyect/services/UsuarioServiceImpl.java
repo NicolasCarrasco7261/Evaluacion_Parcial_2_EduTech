@@ -26,7 +26,7 @@ public class UsuarioServiceImpl implements UsuarioService{
     @Transactional
      public Optional<Usuario> delete(Usuario unUsuario) {
 
-        Optional<Usuario> usuarioOptional = repository.findById(unUsuario.getIdUsuario());
+        Optional<Usuario> usuarioOptional = repository.findById(unUsuario.getId());
         usuarioOptional.ifPresent(usuarioDb->{
             repository.delete(unUsuario);
         });
@@ -38,8 +38,8 @@ public class UsuarioServiceImpl implements UsuarioService{
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<Usuario> findById(Long idUsuario) {       
-        return repository.findById(idUsuario);
+    public Optional<Usuario> findById(Long id) {       
+        return repository.findById(id);
     }
 
 
