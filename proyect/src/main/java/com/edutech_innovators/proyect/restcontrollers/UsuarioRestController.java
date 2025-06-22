@@ -33,7 +33,7 @@ public class UsuarioRestController {
     @Autowired
     private UsuarioService service;
 
-    // Obtener documentacion de la lista de los usuarios registrados
+    // Obtener documentacion de la lista de todos los usuarios registrados
 
     @Operation(summary = "Obtener lista de usuarios", description = "Devuelve todos los usuarios disponibles")
     @ApiResponse(responseCode = "200", description = "Lista de usuarios retornada correctamente", 
@@ -76,8 +76,16 @@ public class UsuarioRestController {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(unUsuario));
     }
 
-    // Metodo para modificar un usuario en especifico y ver la documentacion (pendiente swagger)
+    // Metodo para modificar un usuario en especifico y ver la documentacion 
 
+    @Operation(summary = "Modificar un Usuario existente", description = "Modifica los datos de un usuario en especifico")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Usuario modificado correctamente",
+                 content = @Content(mediaType = "application/json",
+                 schema = @Schema(implementation = Usuario.class))),
+        @ApiResponse(responseCode = "404", description = "Usuario no encontrado",
+                 content = @Content(mediaType = "application/json"))
+    })
     @PutMapping("/{id}")
     public ResponseEntity<?> modificar(@PathVariable Long id, @RequestBody Usuario unUsuario){
         Optional <Usuario> usuarioOptional = service.findById(id);
@@ -97,6 +105,14 @@ public class UsuarioRestController {
 
     // Metodo para eliminar un usuario especifico y ver documentacion (pendiente swagger)
 
+    @Operation(summary = "Eliminar un Usuario existente", description = "Elimina un usuario en especifico")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Usuario eliminado correctamente",
+                 content = @Content(mediaType = "application/json",
+                 schema = @Schema(implementation = Usuario.class))),
+        @ApiResponse(responseCode = "404", description = "Usuario no encontrado",
+                 content = @Content(mediaType = "application/json"))
+    })
     @DeleteMapping("/{id}")
     public ResponseEntity<?> eliminar(@PathVariable Long id) {
         Usuario unUsuario = new Usuario();
