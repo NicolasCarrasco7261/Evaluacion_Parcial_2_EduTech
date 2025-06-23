@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "ProyectApplication",
+            "request": "launch",
+            "mainClass": "com.edutech_innovators.proyect.ProyectApplication",
+            "projectName": "springboot-crud"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ProyectApplication<proyect>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.edutech_innovators.proyect.ProyectApplication",
+            "projectName": "proyect",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
